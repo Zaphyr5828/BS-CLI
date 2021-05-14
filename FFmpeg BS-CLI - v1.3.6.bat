@@ -914,9 +914,9 @@ IF "%queueEnable%"=="yes" (
         :resampleinqueue
         timeout 1 >nul
         IF "%ffmpegBarEnable%"=="yes" (
-            ffmpeg-bar -hwaccel auto -i %inputnumber%.mp4 %gpu% -crf %crfValue% -vf tmix=frames=%framesAmount%:weights="%weighting%",fps=60 -c:a copy %inputnumber%-output-%fpsAmount%fps-resampled.mp4
+            ffmpeg-bar -i %inputnumber%.mp4 %gpu% -crf %crfValue% -vf tmix=frames=%framesAmount%:weights="%weighting%",fps=60 -c:a copy %inputnumber%-output-%fpsAmount%fps-resampled.mp4
         ) else (
-            ffmpeg -hwaccel auto %ffmpegstats% %inputnumber%.mp4 %gpu% -crf %crfValue% -vf tmix=frames=%framesAmount%:weights="%weighting%",fps=60 -c:a copy %inputnumber%-output-%fpsAmount%fps-resampled.mp4
+            ffmpeg %ffmpegstats% %inputnumber%.mp4 %gpu% -crf %crfValue% -vf tmix=frames=%framesAmount%:weights="%weighting%",fps=60 -c:a copy %inputnumber%-output-%fpsAmount%fps-resampled.mp4
         )
         echo.
         echo Resampling %inputnumber%.mp4 has finished!
@@ -945,9 +945,9 @@ IF "%queueEnable%"=="yes" (
     )
     echo.
       IF "%ffmpegBarEnable%"=="yes" (
-            ffmpeg-bar -hwaccel auot -i input.mp4 %gpu% -crf %crfValue% -vf tmix=frames=%framesAmount%:weights="%weighting%",fps=60 -c:a copy output-%fpsAmount%fps-resampled.mp4
+            ffmpeg-bar -i input.mp4 %gpu% -crf %crfValue% -vf tmix=frames=%framesAmount%:weights="%weighting%",fps=60 -c:a copy output-%fpsAmount%fps-resampled.mp4
         ) else (
-            ffmpeg -hwaccel auto %ffmpegstats% input.mp4 %gpu% -crf %crfValue% -vf tmix=frames=%framesAmount%:weights="%weighting%",fps=60 -c:a copy output-%fpsAmount%fps-resampled.mp4
+            ffmpeg %ffmpegstats% input.mp4 %gpu% -crf %crfValue% -vf tmix=frames=%framesAmount%:weights="%weighting%",fps=60 -c:a copy output-%fpsAmount%fps-resampled.mp4
         )
 )
 
